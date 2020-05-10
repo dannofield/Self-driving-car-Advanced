@@ -16,6 +16,6 @@
 	4. and we'll say roughly 700 relevant pixels in the x-dimension (the example of fake generated data used from 200 pixels on the left to 900 on the right, or 700).
 
 # Color Transform
-| Process         | Output        | 
------------- | -------------
-Read in and grayscale the image|<img src="./output_images/perspective_transform/hard_challenge0_Combined.jpg" width="400" height1="100">|
+| Process         | Output        | | |
+------------ | ------------- | ------------- | -------------
+Read in and grayscale the image|<img src="./output_images/perspective_transform/straight_lines1.jpg" width="100" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_SchannelOnly.jpg" width="100" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_FullColorTransf.jpg" width="100" height1="100">|
