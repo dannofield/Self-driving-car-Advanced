@@ -145,3 +145,70 @@ def color_transform(img):
 <img src="./output_images/perspective_transform/test_challenge3.jpg" width="250" height1="100">|<img src="./output_images/perspective_transform/test_challenge3_Combined.jpg" width="250" height1="100">|<img src="./output_images/slidewindows_poly/test_challenge3.jpg" width="250" height1="100">|
 <img src="./output_images/perspective_transform/test_challenge4.jpg" width="250" height1="100">|<img src="./output_images/perspective_transform/test_challenge4_Combined.jpg" width="250" height1="100">|<img src="./output_images/slidewindows_poly/test_challenge4.jpg" width="250" height1="100">|
 
+### Measuring the Curvature, distance of both lines from the center and car's offset
+
+After finding the lines, I measured the curvature of each one. The function called `measure_curvature_real()`, which appears in lines 404 through 463 in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py).  The `measure_curvature_real()` function takes as inputs an image (`img` just to get its shape), as well as the left and right lines (`left_Line, right_Line`).  found them through hystograms and sliding windows or by searching around polygon:
+
+
+```python
+def measure_curvature_real(img, left_Line, right_Line):
+    '''
+    Calculates the curvature of polynomial functions in meters.
+    '''
+    # Define conversions in x and y from pixels space to meters
+    ym_per_pix = 30/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    
+    # Define y-value where we want radius of curvature
+    # We'll choose the maximum y-value, corresponding to the bottom of the image
+    # Define y-value where we want radius of curvature
+    # I'll choose the maximum y-value, corresponding to the bottom of the image
+    h = img.shape[0]
+    ploty = np.linspace(0, h-1, h)
+    y_eval = np.max(ploty)
+    y_eval = y_eval * ym_per_pix
+    
+    left_curverad = 0
+    right_curverad = 0
+    
+    r_fit_x_int = 0
+    l_fit_x_int = 0
+    
+    # Distance from center is image x midpoint - mean of l_fit and r_fit intercepts 
+    if left_Line.best_fit is not None and right_Line.best_fit is not None:
+        
+        left_fit = [0,0]
+        right_fit = [0,0]
+        ##############################
+        #scale coefficients and y_eval from pixels to meters
+        ##############################
+        left_fit[0] = (xm_per_pix / ym_per_pix**2) * left_Line.best_fit[0]
+        left_fit[1] = (xm_per_pix / ym_per_pix) * left_Line.best_fit[1]
+    
+        right_fit[0] = (xm_per_pix / ym_per_pix**2) * right_Line.best_fit[0]
+        right_fit[1] = (xm_per_pix / ym_per_pix) * right_Line.best_fit[1]
+    
+        
+        #Implement the calculation of R_curve (radius of curvature)
+        left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
+        right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])
+        
+        # Now our radius of curvature is in meters        
+        
+        l_fit_x_int = left_Line.best_fit[0]*h**2 + left_Line.best_fit[1]*h + left_Line.best_fit[2]
+        r_fit_x_int = right_Line.best_fit[0]*h**2 + right_Line.best_fit[1]*h + right_Line.best_fit[2]
+        
+        #If we don't have data just don't change the data from the previous frame
+        
+        #radius of curvature of the line in some units
+        left_Line.radius_of_curvature = left_curverad 
+        right_Line.radius_of_curvature = right_curverad
+    
+        #distance in meters of vehicle center from the line
+        car_position = (img.shape[1]/2) * xm_per_pix
+        
+        left_Line.line_base_pos = l_fit_x_int * xm_per_pix - car_position
+        right_Line.line_base_pos = car_position - r_fit_x_int * xm_per_pix
+        
+    return left_Line, right_Line
+```
