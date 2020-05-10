@@ -212,3 +212,96 @@ def measure_curvature_real(img, left_Line, right_Line):
         
     return left_Line, right_Line
 ```
+
+
+#FINAL PIPELINE
+
+This is the main algorith which starts by calibraring the camera, defining the source and destination points to create our trasnformation matrix and then it enters to while loop to read each video frame and processing the image. The algorithm is self-explanatory but you can find the source code in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py)
+
+
+```python
+################################################
+# Camera Calibration
+################################################
+objpoints, imgpoints, mtx, dist = camera_calibration()
+
+################################################
+# Perspective transform points and Matriz
+################################################
+
+# define 4 source points src
+transform_src = np.float32([[180,720],[575,460],[710,460],[1133,720]])
+# define 4 destination points dst
+transform_dst = np.float32([[300,720],[290,50],[980,50],[950,720]])
+# use cv2.getPerspectiveTransform() to get M, the transform matrix
+transform_M = cv2.getPerspectiveTransform(transform_src, transform_dst)
+transform_Minverse = np.linalg.inv(transform_M)
+ 
+################################################
+# List to save our polynomial fit result to help
+# with our next frame 
+################################################   
+left_Line = Line()
+right_Line = Line()
+
+videos = ['test_videos/project_video.mp4','test_videos/challenge_video.mp4','test_videos/harder_challenge_video.mp4']
+indexVideo = 0
+video = cv2.VideoCapture(videos[indexVideo])
+
+#Play videos showing lines in Real Time
+saveFrameIndex = 0
+while True:
+    ret,frame = video.read() 
+    if not ret:
+        #Get another video... or exit
+        break
+
+    # Note: always make a copy rather than simply using "="
+    img = np.copy(frame) #img = frame
+    
+    #Process image and show the final image as a frame
+    ################################################
+    # Distortion Correction
+    ################################################
+    undst_img = distortion_correction(img, mtx, dist)
+
+    ################################################
+    # Full color threshold transform
+    ################################################
+    thresholded_binary_img = color_transform(undst_img)
+
+    ################################################
+    # Perspective transform
+    ################################################
+    warped_img = perspective_transform(thresholded_binary_img, transform_M)
+
+    ################################################
+    # Find lane by either using a sliding window loop
+    # or previous polinomial fit points
+    ################################################ 
+    left_Line, right_Line = find_lane(warped_img, left_Line, right_Line) 
+    
+    ################################################
+    # Find curvature if we have found the lines
+    ################################################
+    left_Line, right_Line = measure_curvature_real(img, left_Line, right_Line)
+        
+    ################################################
+    # Draw lane on top of the original image/frame
+    ################################################
+    frameToShow = draw_lane(warped_img, img, left_Line, right_Line, transform_Minverse)
+   
+    ################################################
+    # Draw the curvature radious and car's offset
+    ################################################   
+    frameToShow = draw_curvature_data(frameToShow, left_Line, right_Line)
+    
+    cv2.imshow("frame",frameToShow)
+    key = cv2.waitKey(25)
+    if key == 27:#ESC Key to quit
+        break;
+          
+        
+video.release()
+cv2.destroyAllWindows()
+```
