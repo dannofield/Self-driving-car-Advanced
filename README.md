@@ -131,7 +131,7 @@ def color_transform(img):
 # Find lane with Hystogram & Sliding Windows
 | Perspective transform | S channel + Sobel + thresholds | Sliding Windows |
 ------------ | ------------- | ------------- | 
-<img src="./output_images/perspective_transform/straight_lines1.jpg" width="200" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_Combined.jpg" width="200" height1="100">|<img src="./output_images/slidewindows_poly/straight_lines1.jpg" width="200" height1="100">|
+<img src="./output_images/perspective_transform/straight_lines1.jpg" width="250" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_Combined.jpg" width="250" height1="100">|<img src="./output_images/slidewindows_poly/straight_lines1.jpg" width="250" height1="100">|
 <img src="./output_images/perspective_transform/straight_lines2.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines2_Combined.jpg" width="150" height1="100">|<img src="./output_images/slidewindows_poly/straight_lines2.jpg" width="150" height1="100">|
 <img src="./output_images/perspective_transform/test1.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/test1_Combined.jpg" width="150" height1="100">|<img src="./output_images/slidewindows_poly/test1.jpg" width="150" height1="100">|
 <img src="./output_images/perspective_transform/test2.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/test2_Combined.jpg" width="150" height1="100">|<img src="./output_images/slidewindows_poly/test2.jpg" width="150" height1="100">|
