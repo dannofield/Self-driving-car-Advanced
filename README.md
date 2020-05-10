@@ -336,11 +336,12 @@ Here you can see the output of the color transform function and the sliding wind
 <img src="./output_images/perspective_transform/hard_challenge9.jpg" width="250" height1="100">|<img src="./output_images/perspective_transform/hard_challenge9_Combined.jpg" width="250" height1="100">|<img src="./output_images/slidewindows_poly/hard_challenge9.jpg" width="250" height1="100">|
 
 
-
+## References
 Original project taken from:
 [CarND-Advanced-Lane-Lines](https://github.com/udacity/CarND-Advanced-Lane-Lines). Thank you
 
  References to external Projects and Readings
 [Computer vision with OpenCV](https://chatbotslife.com/self-driving-cars-advanced-computer-vision-with-opencv-finding-lane-lines-488a411b2c3d)
+
 [Advanced Lane-Finding](https://towardsdatascience.com/udacity-self-driving-car-nanodegree-project-4-advanced-lane-finding-f4492136a19d)
     
