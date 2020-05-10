@@ -308,6 +308,10 @@ I tried different ways, you can see two different functions in the file [Proyect
 
 I couldn't find a better solution, both have different approachs and I ended up using `color_transform()` .
 
+It works great with the project video but not with the challenges one. 
+Here you can see the output of the color transform function and the sliding window algorithm struggling to find the right lines.
+
+
 ## Challenge Video Color Transform
 | Perspective transform | S channel Only |Sobel + thresholds | Combined | Yellow & White mask only|
 ------------ | ------------- | ------------- | ------------- | -------------
