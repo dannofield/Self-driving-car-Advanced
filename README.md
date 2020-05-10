@@ -348,9 +348,10 @@ Here you can see the output of the color transform function and the sliding wind
 We can see an enormous difference in between finding lanes by only using Run Hough / Canny transforms and using camera calibration, color and perspective transform and trying to fit a polynomial.
 
 I found that I was able to reduce the "search window" width if we already had found the lines on the previous frame. Nevertheless, the color transform function on my algorithm can be improved a lot.
-I tried to follow discussions on internet and projects from previous students showing how successfully were able to run the algorithm on the challenge video but for some reason I could not make it work, even adjusting the source and destination points or color thresholds.
 
-I think that even with a great algorithm there are a lot of things that we should be concerned about, like when the car is changing lanes, very narrow routs and poorly signaling on the roud.
+I tried to follow discussions on internet and projects from previous students showing how successfully they were able to run the algorithm on the challenge video. But for some reason, I could not make it work, even adjusting the source and destination points or color thresholds.
+
+I think that even with a great algorithm there are a lot of things that we should be concerned about, like when the car is changing lanes, very narrow routs and poorly signaling on the street.
 
 I hope I can find a better approch in the future by using machine learning.
 
