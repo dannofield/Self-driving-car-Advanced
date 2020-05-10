@@ -16,6 +16,6 @@
 	4. and we'll say roughly 700 relevant pixels in the x-dimension (the example of fake generated data used from 200 pixels on the left to 900 on the right, or 700).
 
 # Color Transform
-| Process         | Output        | | | |
+| Perspective transform | S channel Only |Sobel + thresholds | Combined | Yellow & White mask only|
 ------------ | ------------- | ------------- | ------------- | -------------
-Read in and grayscale the image|<img src="./output_images/perspective_transform/straight_lines1.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_SchannelOnly.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_FullColorTransf.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_Combined.jpg" width="150" height1="100">|
+<img src="./output_images/perspective_transform/straight_lines1.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_SchannelOnly.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_FullColorTransf.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_Combined.jpg" width="150" height1="100">|<img src="./output_images/perspective_transform/straight_lines1_Option2.jpg" width="150" height1="100">||
