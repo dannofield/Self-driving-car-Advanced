@@ -1,8 +1,7 @@
 # Self-driving-car-Advanced
 
-**Finding Lane Lines Advanced**
 
-The goals / steps of this project are the following:
+**The goals / steps of this project are the following:**
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.You only need to compute these once
 * Apply a distortion correction to raw images.
 * Use color transforms, gradients, etc., to create a thresholded binary image.
@@ -15,3 +14,8 @@ The goals / steps of this project are the following:
 	2. minimum lane width of 12 feet or 3.7 meters, and the dashed lane lines are 10 feet or 3 meters long each
 	3. our camera image has 720 relevant pixels in the y-dimension (remember, our image is perspective-transformed!)
 	4. and we'll say roughly 700 relevant pixels in the x-dimension (the example of fake generated data used from 200 pixels on the left to 900 on the right, or 700).
+
+# Color Transform
+| Process         | Output        | 
+------------ | -------------
+Read in and grayscale the image|<img src="./output_images/perspective_transform/hard_challenge0_Combined.jpg" width="400" height1="100">|
