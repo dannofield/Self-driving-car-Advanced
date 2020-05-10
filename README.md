@@ -209,7 +209,7 @@ def measure_curvature_real(img, left_Line, right_Line):
 
 # FINAL PIPELINE
 
-This is the main algorith which starts by calibraring the camera, defining the source and destination points to create our trasnformation matrix and then it enters to while loop to read each video frame and processing the image. The algorithm is self-explanatory but you can find the source code in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py)
+This is the main algorith which starts by calibraring the camera, defining the source and destination points to create our trasnformation matrix and then it enters to while loop to read each video frame and processing the image. The algorithm is self-explanatory but you can find the source code in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py) on the line 147 (color_transform)
 
 
 ```python
@@ -301,6 +301,12 @@ cv2.destroyAllWindows()
 ```
 
 # Areas where improvements could be made
+
+We can definitely have a significant improvement by modifying the color transform algorithm by itself.
+
+I tried different ways, you can see two different functions in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py), a function called `color_transform()` at line 147 and `color_transform2()` at line 123.
+
+I couldn't find a better solution, both have different approachs and I ended up using `color_transform()` .
 
 ## Challenge Video Color Transform
 | Perspective transform | S channel Only |Sobel + thresholds | Combined | Yellow & White mask only|
