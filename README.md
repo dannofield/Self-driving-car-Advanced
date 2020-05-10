@@ -1,6 +1,14 @@
 # Self-driving-car-Advanced
 
 
+
+* [Ipython notebook](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/IpythonNotebook.ipynb) has all the process and at the end shows how to put everything together to show and process the video in real time
+* Source Code	
+	1. [Project2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py) Plays the video in real time
+* [Result/Output images](https://github.com/dannofield/Self-driving-car-Advanced/tree/master/output_images)
+* [Video Output](https://github.com/dannofield/Self-driving-car-Advanced/upload/master/test_videos_output)
+
+
 **The goals / steps of this project are the following:**
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.You only need to compute these once
 * Apply a distortion correction to raw images.
@@ -341,7 +349,5 @@ Original project taken from:
 [CarND-Advanced-Lane-Lines](https://github.com/udacity/CarND-Advanced-Lane-Lines). Thank you
 
  References to external Projects and Readings
-[Computer vision with OpenCV](https://chatbotslife.com/self-driving-cars-advanced-computer-vision-with-opencv-finding-lane-lines-488a411b2c3d)
-
-[Advanced Lane-Finding](https://towardsdatascience.com/udacity-self-driving-car-nanodegree-project-4-advanced-lane-finding-f4492136a19d)
+[Computer vision with OpenCV](https://chatbotslife.com/self-driving-cars-advanced-computer-vision-with-opencv-finding-lane-lines-488a411b2c3d) and [Advanced Lane-Finding](https://towardsdatascience.com/udacity-self-driving-car-nanodegree-project-4-advanced-lane-finding-f4492136a19d)
     
