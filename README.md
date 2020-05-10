@@ -15,9 +15,14 @@
 	3. our camera image has 720 relevant pixels in the y-dimension (remember, our image is perspective-transformed!)
 	4. and we'll say roughly 700 relevant pixels in the x-dimension (the example of fake generated data used from 200 pixels on the left to 900 on the right, or 700).
 
+# Camera Calibration And undistort image
+| Original |Undistorted|
+------------ | -------------
+<img src="./camera_cal/calibration1.jpg" width="400" height1="100">|<img src="./output_images/camera_cal_output/test_undist.jpg" width="400" height1="100">
+
 # Perspective Transform
 
-The code for my perspective transform includes a function called `perspective_transform()`, which appears in lines 131 through 134 in the file `Proyect2.py`.  The `warper()` function takes as inputs an image (`img`), as well as the perspective transform matrix (`M`).  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `perspective_transform()`, which appears in lines 131 through 134 in the file [Proyect2.py](https://github.com/dannofield/Self-driving-car-Advanced/blob/master/Project2.py).  The `perspective_transform()` function takes as inputs an image (`img`), as well as the perspective transform matrix (`M`).  I chose the hardcode the source and destination points in the following manner:
 
 ```python
 transform_src = np.float32([
