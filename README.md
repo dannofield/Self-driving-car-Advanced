@@ -42,7 +42,7 @@ This resulted in the following source and destination points:
 
 | Original |Perspective transform|
 ------------ | -------------
-<img src="./output_images/perspective_transform/PerspectiveTransformModel.jpg" width="200" height1="100">|<img src="./output_images/perspective_transform/PerspectiveTransformModelOutput.jpg" width="200" height1="100">
+<img src="./output_images/perspective_transform/PerspectiveTransformModel.jpg" width="400" height1="100">|<img src="./output_images/perspective_transform/PerspectiveTransformModelOutput.jpg" width="400" height1="100">
 
 # Color Transform
 | Perspective transform | S channel Only |Sobel + thresholds | Combined | Yellow & White mask only|
