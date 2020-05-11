@@ -361,4 +361,20 @@ Original project taken from:
 
  References to external Projects and Readings
 [Computer vision with OpenCV](https://chatbotslife.com/self-driving-cars-advanced-computer-vision-with-opencv-finding-lane-lines-488a411b2c3d) and [Advanced Lane-Finding](https://towardsdatascience.com/udacity-self-driving-car-nanodegree-project-4-advanced-lane-finding-f4492136a19d)
-    
+
+## Feedback
+
+You could try color thresholding in all RGB, HLS, HSV colorspaces to make the pipeline more robust. Color thresholding is also much faster to compute as opposed to the gradient calculation in the Sobel transform.
+
+Lab is another colorspace that should work well here, especially the "B" channel which should help identify the yellow lanes effectively.
+
+You can use contrast correction of initial images to fight excessive darkness or brightness. In addition to this, you can use some [morphological transformations](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html) to highlight lines of interest even more and remove noise.
+
+```python
+img = cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
+img[:,:,0] = cv2.equalizeHist(img[:,:,0])
+img = cv2.cvtColor(img, cv2.COLOR_YUV2RGB)
+```
+The perspective transform looks good! [The following paper would be a good read on the topic](http://www.ijser.org/researchpaper%5CA-Simple-Birds-Eye-View-Transformation-Technique.pdf)
+
+Good discussion of the project. You could also use a deep learning approach which should be more robust to shadows and colors. The following [article might be a good read](https://medium.com/towards-data-science/lane-detection-with-deep-learning-part-1-9e096f3320b7)
